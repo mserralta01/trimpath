@@ -8,7 +8,7 @@ Axispep is a responsive ecommerce storefront and protected operations back offic
 2. Install dependencies with `npm install`.
 3. Start the app with `npm run dev`.
 
-Production checkout intentionally stays disabled until both the payment credentials and `NEXT_PUBLIC_CHECKOUT_ENABLED=true` are configured. Production back-office access intentionally stays locked until the Axispep staff identity provider and `app_axispep` role are connected.
+Production checkout intentionally stays disabled until both the payment credentials and `NEXT_PUBLIC_CHECKOUT_ENABLED=true` are configured. Back-office accounts, sessions, and authorization are managed independently inside the Axispep Convex deployment.
 
 ## Validation
 

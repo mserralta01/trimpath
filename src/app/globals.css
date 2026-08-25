@@ -303,13 +303,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .admin-sidebar__foot a { color: #fff; font-size: 12px; font-weight: 800; }
 .admin-sidebar__foot span { color: #758aa5; font-size: 10px; }
 .admin-main { width: calc(100% - 270px); min-width: 0; margin-left: 270px; }
-.admin-topbar { min-height: 72px; position: sticky; top: 0; z-index: 30; display: grid; grid-template-columns: 1fr minmax(300px, 500px) 1fr; align-items: center; padding: 0 30px; border-bottom: 1px solid #dfe5eb; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); }
+.admin-topbar { min-height: 72px; position: sticky; top: 0; z-index: 30; display: grid; grid-template-columns: 1fr minmax(300px, 500px) auto auto; gap: 18px; align-items: center; padding: 0 30px; border-bottom: 1px solid #dfe5eb; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); }
 .admin-topbar > div:first-child { font-family: var(--font-display); font-size: 14px; font-weight: 800; }
 .admin-topbar label { min-height: 42px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid #dfe5ec; border-radius: 8px; background: #f6f8fa; }
 .admin-topbar label svg { width: 16px; color: #8693a4; }
 .admin-topbar label input { width: 100%; border: 0; outline: 0; background: transparent; }
 .environment { justify-self: end; display: flex; align-items: center; gap: 7px; color: #526177; font-size: 11px; }
 .environment > span { width: 8px; height: 8px; border-radius: 50%; background: #19a76d; box-shadow: 0 0 0 4px #dff7ec; }
+.admin-signout { min-height: 36px; padding: 0 13px; border: 1px solid #d5dfe8; border-radius: 7px; color: #405067; background: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
 .admin-menu { display: none; }
 .admin-content { padding: 34px; }
 .admin-heading { display: flex; justify-content: space-between; gap: 30px; align-items: flex-end; margin-bottom: 28px; }
@@ -374,6 +375,29 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .admin-locked p { color: #bdc8d8; }
 .admin-locked a { color: #5bc0ff; text-decoration: underline; }
 
+.admin-auth-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 42px 20px; color: #fff; background: radial-gradient(circle at 70% 20%, #123f75 0, transparent 35%), #051a37; }
+.admin-auth-brand { display: flex; flex-direction: column; align-items: center; }
+.admin-auth-brand img { width: 185px; height: auto; filter: brightness(0) invert(1); }
+.admin-auth-brand span { margin-top: 4px; color: #58b5fb; font-size: 10px; font-weight: 800; letter-spacing: .22em; }
+.admin-auth-card { width: min(470px, 100%); padding: 34px; border: 1px solid rgba(255,255,255,.15); border-radius: 17px; background: rgba(255,255,255,.075); box-shadow: 0 28px 70px rgba(0,0,0,.25); backdrop-filter: blur(18px); }
+.admin-auth-card > svg { width: 34px; height: 34px; color: #55b6ff; }
+.admin-auth-kicker { display: block; margin-top: 17px; color: #70c3ff; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.admin-auth-card h1 { margin: 8px 0 10px; font-size: 35px; line-height: 1.05; letter-spacing: -.03em; }
+.admin-auth-card > p { margin: 0 0 23px; color: #bdc9d8; font-size: 13px; }
+.admin-auth-card form { display: grid; gap: 14px; }
+.admin-auth-card label { display: grid; gap: 6px; color: #dfe8f3; font-size: 11px; font-weight: 800; }
+.admin-auth-card input { width: 100%; min-height: 48px; padding: 0 13px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; outline: 0; color: #fff; background: rgba(0,0,0,.18); }
+.admin-auth-card input:focus { border-color: #4eacfa; box-shadow: 0 0 0 3px rgba(78,172,250,.15); }
+.admin-auth-card form > small { color: #92a5bb; font-size: 10px; }
+.admin-auth-card form > button { min-height: 49px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 8px; color: #fff; background: #187dcb; font-weight: 800; cursor: pointer; }
+.admin-auth-card form > button:disabled { opacity: .55; cursor: not-allowed; }
+.admin-auth-card form > button svg { width: 17px; }
+.admin-auth-secondary { width: 100%; margin-top: 13px; padding: 10px; border: 0; color: #82c9ff; background: transparent; font-size: 11px; font-weight: 800; cursor: pointer; }
+.admin-auth-error { padding: 10px 12px; border: 1px solid rgba(255,131,131,.35); border-radius: 7px; color: #ffd4d4; background: rgba(150,20,20,.18); font-size: 11px; }
+.admin-auth-loading { padding: 30px; color: #c6d3e2; }
+.admin-auth-page > a { display: flex; align-items: center; gap: 7px; color: #8fcfff; font-size: 12px; }
+.admin-auth-page > a svg { width: 15px; }
+
 /* Responsive */
 @media (max-width: 1180px) {
   .site-header__inner { grid-template-columns: 190px 1fr 90px; }
@@ -418,7 +442,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .admin-sidebar.is-open + .admin-overlay { opacity: 1; pointer-events: auto; }
   .admin-brand button { position: absolute; right: 16px; display: grid; place-items: center; border: 0; color: #fff; background: transparent; }
   .admin-main { width: 100%; margin-left: 0; }
-  .admin-topbar { grid-template-columns: 1fr 1fr auto; padding: 0 20px; }
+  .admin-topbar { grid-template-columns: 1fr 1fr auto auto; padding: 0 20px; }
   .admin-topbar > div:first-child { display: flex; align-items: center; gap: 10px; }
   .admin-menu { display: grid; place-items: center; border: 0; background: transparent; }
 }
@@ -478,8 +502,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .success-page > div > div { flex-direction: column; }
   .certificate-list article { grid-template-columns: 36px 1fr auto; }
   .certificate-list article > div:nth-of-type(2), .certificate-list article > div:nth-of-type(3) { display: none; }
-  .admin-topbar { grid-template-columns: 1fr auto; }
+  .admin-topbar { grid-template-columns: 1fr auto auto; }
   .admin-topbar label { display: none; }
+  .environment { display: none; }
   .admin-content { padding: 20px 14px; }
   .admin-heading { align-items: stretch; flex-direction: column; }
   .stat-grid { grid-template-columns: 1fr; }
@@ -494,6 +519,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .settings-readout { grid-template-columns: 1fr; }
   .admin-locked > div { padding: 30px 22px; }
   .admin-locked h1 { font-size: 38px; }
+  .admin-auth-card { padding: 28px 22px; }
+  .admin-auth-card h1 { font-size: 31px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

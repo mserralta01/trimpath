@@ -1,6 +1,7 @@
 "use client";
 
-import { ConvexProvider, ConvexReactClient } from "convex/react";
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import { ConvexReactClient } from "convex/react";
 import { useMemo } from "react";
 import { CartProvider } from "@/components/store-shell";
 
@@ -11,5 +12,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
   }, []);
 
   const content = <CartProvider>{children}</CartProvider>;
-  return client ? <ConvexProvider client={client}>{content}</ConvexProvider> : content;
+  return client ? <ConvexAuthProvider client={client}>{content}</ConvexAuthProvider> : content;
 }

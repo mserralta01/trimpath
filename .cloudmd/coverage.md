@@ -11,6 +11,7 @@
 - [x] Contact, About, FAQ, and official-site guidance
 - [x] Privacy and terms pages
 - [x] Staff access lock
+- [x] Independent Axispep account creation, sign-in, sign-out, and owner activation
 - [x] Operations overview
 - [x] Product and inventory management
 - [x] Order and customer management
