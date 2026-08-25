@@ -1,6 +1,6 @@
-# Axispep
+# TrimPath
 
-Axispep is a responsive ecommerce storefront and protected operations back office for research compounds. The application recreates the established Axispep visual system, adds a safer checkout flow, and includes catalogue, inventory, order, customer, discount, batch-certificate, and store-setting management.
+TrimPath is a responsive ecommerce storefront and protected operations back office for research compounds. The application recreates the established TrimPath visual system, adds a safer checkout flow, and includes catalogue, inventory, order, customer, discount, batch-certificate, and store-setting management.
 
 ## Local development
 
@@ -8,7 +8,7 @@ Axispep is a responsive ecommerce storefront and protected operations back offic
 2. Install dependencies with `npm install`.
 3. Start the app with `npm run dev`.
 
-Production checkout intentionally stays disabled until both the payment credentials and `NEXT_PUBLIC_CHECKOUT_ENABLED=true` are configured. Back-office accounts, sessions, and authorization are managed independently inside the Axispep Convex deployment.
+Production checkout intentionally stays disabled until both the payment credentials and `NEXT_PUBLIC_CHECKOUT_ENABLED=true` are configured. Back-office accounts, sessions, and authorization are managed independently inside the TrimPath Convex deployment.
 
 ## Validation
 
