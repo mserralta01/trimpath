@@ -1,0 +1,78 @@
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+
+const variant = v.object({
+  sku: v.string(),
+  strength: v.string(),
+  price: v.number(),
+  inventory: v.number(),
+  lowStockAt: v.number(),
+  active: v.boolean(),
+});
+
+export default defineSchema({
+  products: defineTable({
+    slug: v.string(),
+    name: v.string(),
+    category: v.union(v.literal("GLP-1"), v.literal("Peptides")),
+    description: v.string(),
+    image: v.string(),
+    badge: v.optional(v.string()),
+    active: v.boolean(),
+    variants: v.array(variant),
+    updatedAt: v.number(),
+  }).index("by_slug", ["slug"]),
+  customers: defineTable({
+    email: v.string(),
+    firstName: v.string(),
+    lastName: v.string(),
+    phone: v.optional(v.string()),
+    orderCount: v.number(),
+    lifetimeValue: v.number(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_email", ["email"]),
+  orders: defineTable({
+    orderNumber: v.string(),
+    customerEmail: v.string(),
+    customerName: v.string(),
+    status: v.union(v.literal("draft"), v.literal("pending"), v.literal("paid"), v.literal("fulfilled"), v.literal("cancelled"), v.literal("refunded")),
+    paymentStatus: v.union(v.literal("unpaid"), v.literal("processing"), v.literal("paid"), v.literal("refunded")),
+    items: v.array(v.object({ sku: v.string(), name: v.string(), strength: v.string(), quantity: v.number(), unitPrice: v.number() })),
+    subtotal: v.number(),
+    discount: v.number(),
+    shipping: v.number(),
+    total: v.number(),
+    shippingAddress: v.object({ line1: v.string(), line2: v.optional(v.string()), city: v.string(), state: v.string(), postalCode: v.string(), country: v.string() }),
+    notes: v.optional(v.string()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_order_number", ["orderNumber"]).index("by_created_at", ["createdAt"]),
+  discounts: defineTable({
+    code: v.string(),
+    type: v.union(v.literal("percent"), v.literal("fixed")),
+    amount: v.number(),
+    active: v.boolean(),
+    usageCount: v.number(),
+    startsAt: v.number(),
+    endsAt: v.optional(v.number()),
+  }).index("by_code", ["code"]),
+  batches: defineTable({
+    productSlug: v.string(),
+    compound: v.string(),
+    lotNumber: v.string(),
+    certificateUrl: v.string(),
+    testedAt: v.number(),
+    published: v.boolean(),
+  }).index("by_product", ["productSlug"]).index("by_lot", ["lotNumber"]),
+  storeSettings: defineTable({
+    singleton: v.string(),
+    storeName: v.string(),
+    supportEmail: v.string(),
+    freeShippingThreshold: v.number(),
+    minimumOrder: v.number(),
+    checkoutEnabled: v.boolean(),
+    announcement: v.string(),
+    updatedAt: v.number(),
+  }).index("by_singleton", ["singleton"]),
+});

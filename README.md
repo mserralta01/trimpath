@@ -1,5 +1,19 @@
 # Axispep
 
-Axispep is a documentation-first ecommerce storefront and operations back office for research compounds.
+Axispep is a responsive ecommerce storefront and protected operations back office for research compounds. The application recreates the established Axispep visual system, adds a safer checkout flow, and includes catalogue, inventory, order, customer, discount, batch-certificate, and store-setting management.
 
-The storefront is deployed on Vercel and operational data is managed with Convex.
+## Local development
+
+1. Copy `.env.example` to `.env.local` and provide the development deployment URL.
+2. Install dependencies with `npm install`.
+3. Start the app with `npm run dev`.
+
+Production checkout intentionally stays disabled until both the payment credentials and `NEXT_PUBLIC_CHECKOUT_ENABLED=true` are configured. Production back-office access intentionally stays locked until the Axispep staff identity provider and `app_axispep` role are connected.
+
+## Validation
+
+Run `npm run typecheck`, `npm run lint`, and `npm run build` before release.
+
+## Documentation
+
+The permanent user guide, feature log, and bug-fix log are published at [floral-harbor-35bk.here.now](https://floral-harbor-35bk.here.now/). The versioned source is in `docs-site/`.
