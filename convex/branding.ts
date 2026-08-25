@@ -3,10 +3,10 @@ import { mutation } from "./_generated/server";
 const newSku = (sku: string) => sku.startsWith("AX-") ? `TP-${sku.slice(3)}` : sku;
 
 /**
- * Idempotent production data alignment for the approved TrimPath rebrand.
+ * Idempotent production data alignment for the approved Trim Path Rx rebrand.
  * It only updates brand-owned catalogue fields and SKU labels.
  */
-export const applyTrimPath = mutation({
+export const applyTrimPathRx = mutation({
   args: {},
   handler: async (ctx) => {
     const now = Date.now();
@@ -38,11 +38,11 @@ export const applyTrimPath = mutation({
       updatedOrders += 1;
     }
 
-    const updatedSettings = Boolean(settings && (settings.storeName !== "TrimPath" || settings.supportEmail !== "support@trimpath.com"));
+    const updatedSettings = Boolean(settings && (settings.storeName !== "Trim Path Rx" || settings.supportEmail !== "support@trimpathrx.com"));
     if (settings && updatedSettings) {
       await ctx.db.patch(settings._id, {
-        storeName: "TrimPath",
-        supportEmail: "support@trimpath.com",
+        storeName: "Trim Path Rx",
+        supportEmail: "support@trimpathrx.com",
         updatedAt: now,
       });
     }

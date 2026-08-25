@@ -1,4 +1,4 @@
-name: Validate TrimPath
+name: Validate Trim Path Rx
 
 on:
   pull_request:
