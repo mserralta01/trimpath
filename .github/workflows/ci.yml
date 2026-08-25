@@ -1,4 +1,4 @@
-name: Validate Axispep
+name: Validate TrimPath
 
 on:
   pull_request:

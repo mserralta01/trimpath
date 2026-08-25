@@ -1,10 +1,10 @@
 import { query } from "./_generated/server";
-import { requireAxispepAdmin } from "./lib/auth";
+import { requireTrimPathAdmin } from "./lib/auth";
 
 export const overview = query({
   args: {},
   handler: async (ctx) => {
-    await requireAxispepAdmin(ctx);
+    await requireTrimPathAdmin(ctx);
     const [products, orders, customers] = await Promise.all([
       ctx.db.query("products").collect(),
       ctx.db.query("orders").collect(),
