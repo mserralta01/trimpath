@@ -26,7 +26,7 @@ export const run = mutation({
     for (const [slug, name, category, description, image, badge, variants] of products) {
       await ctx.db.insert("products", { slug, name, category, description, image, badge: badge || undefined, active: true, updatedAt: now, variants: variants.map(([sku, strength, price, inventory]) => ({ sku, strength, price, inventory, lowStockAt: 12, active: true })) });
     }
-    await ctx.db.insert("storeSettings", { singleton: "main", storeName: "TrimPath", supportEmail: "support@trimpath.com", freeShippingThreshold: 100, minimumOrder: 100, checkoutEnabled: false, announcement: "Free U.S. shipping on qualifying $100+ research orders", updatedAt: now });
+    await ctx.db.insert("storeSettings", { singleton: "main", storeName: "Trim Path Rx", supportEmail: "support@trimpathrx.com", freeShippingThreshold: 100, minimumOrder: 100, checkoutEnabled: false, announcement: "Free U.S. shipping on qualifying $100+ research orders", updatedAt: now });
     await ctx.db.insert("discounts", { code: "LAB10", type: "percent", amount: 10, active: true, usageCount: 0, startsAt: now });
     return { seeded: true };
   },

@@ -6,7 +6,7 @@ type TrimPathVialProps = {
 };
 
 export function TrimPathVial({ name, strength, className }: TrimPathVialProps) {
-  const title = `${name} ${strength} TrimPath research vial`;
+  const title = `${name} ${strength} Trim Path Rx research vial`;
   const productFontSize = name.length > 12 ? 17 : name.length > 8 ? 20 : 23;
 
   return (

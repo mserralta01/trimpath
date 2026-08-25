@@ -106,7 +106,7 @@ export function Header() {
     <div className="announcement">Free U.S. shipping on qualifying $100+ research orders</div>
     <div className="research-strip">Research compounds · Documentation first <Link href="/official">Verify official site</Link></div>
     <header className="site-header"><div className="site-header__inner">
-      <Link href="/" aria-label="TrimPath home"><Image className="brand" src="/assets/brand/trimpath-wordmark.svg" width={184} height={45} alt="TrimPath" priority /></Link>
+      <Link href="/" aria-label="Trim Path Rx home"><Image className="brand" src="/assets/brand/trimpath-wordmark.svg" width={184} height={45} alt="TrimPath" priority /></Link>
       <nav className={`primary-nav ${mobileOpen ? "is-open" : ""}`} aria-label="Primary navigation">{links.map(([label, href]) => <Link key={href} href={href} onClick={() => setMobileOpen(false)}>{label}</Link>)}</nav>
       <div className="header-actions"><button className="icon-button mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Open navigation">{mobileOpen ? <X size={20} /> : <Menu size={20} />}</button><button className="icon-button cart-button" onClick={open} aria-label={`Open cart with ${count} items`}><ShoppingBag size={19} /><span>{count}</span></button></div>
     </div></header>
@@ -116,9 +116,9 @@ export function Header() {
 export function Footer() {
   return <footer className="site-footer">
     <div className="container footer-promises"><div><strong>Documented batches</strong><span>COAs organized by compound and lot</span></div><div><strong>U.S. shipping</strong><span>Free on qualifying $100+ orders</span></div><div><strong>Research use only</strong><span>Not for human or animal consumption</span></div></div>
-    <div className="container footer-grid"><div><Image src="/assets/brand/trimpath-wordmark.svg" width={190} height={48} alt="TrimPath" /><p>Research compounds presented with clear documentation, consistent labeling, and transparent batch records.</p><a href="mailto:support@trimpath.com">support@trimpath.com</a></div><div><h3>Research</h3><Link href="/research">Research gateway</Link><Link href="/research-standards">Standards</Link><Link href="/shop">Catalogue</Link><Link href="/lab-results">Lab results</Link></div><div><h3>Customer care</h3><Link href="/shop">Shop</Link><Link href="/shipping">Shipping</Link><Link href="/track-order">Track order</Link><Link href="/contact">Contact</Link></div><div><h3>Company</h3><Link href="/about">About</Link><Link href="/faq">FAQ</Link><Link href="/official">Official site</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></div>
+    <div className="container footer-grid"><div><Image src="/assets/brand/trimpath-wordmark.svg" width={190} height={48} alt="TrimPath" /><p>Research compounds presented with clear documentation, consistent labeling, and transparent batch records.</p><a href="mailto:support@trimpathrx.com">support@trimpathrx.com</a></div><div><h3>Research</h3><Link href="/research">Research gateway</Link><Link href="/research-standards">Standards</Link><Link href="/shop">Catalogue</Link><Link href="/lab-results">Lab results</Link></div><div><h3>Customer care</h3><Link href="/shop">Shop</Link><Link href="/shipping">Shipping</Link><Link href="/track-order">Track order</Link><Link href="/contact">Contact</Link></div><div><h3>Company</h3><Link href="/about">About</Link><Link href="/faq">FAQ</Link><Link href="/official">Official site</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></div>
     <div className="research-disclaimer"><strong>For Research Use Only.</strong> Products displayed on this website are intended strictly for laboratory research. They are not for human or animal consumption, therapeutic use, diagnostic use, or household use.</div>
-    <div className="copyright">© 2026 TrimPath Research.</div>
+    <div className="copyright">© 2026 Trim Path Rx Research.</div>
   </footer>;
 }
 
