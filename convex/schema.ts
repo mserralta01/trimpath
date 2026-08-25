@@ -1,5 +1,6 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
+import { authTables } from "@convex-dev/auth/server";
 
 const variant = v.object({
   sku: v.string(),
@@ -11,6 +12,12 @@ const variant = v.object({
 });
 
 export default defineSchema({
+  ...authTables,
+  adminUsers: defineTable({
+    userId: v.id("users"),
+    role: v.union(v.literal("owner"), v.literal("manager")),
+    createdAt: v.number(),
+  }).index("by_user", ["userId"]),
   products: defineTable({
     slug: v.string(),
     name: v.string(),
