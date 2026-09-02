@@ -1,4 +1,5 @@
 import { mutation } from "./_generated/server";
+import { requireTrimPathAdmin } from "./lib/auth";
 
 const newSku = (sku: string) => sku.startsWith("AX-") ? `TP-${sku.slice(3)}` : sku;
 
@@ -9,12 +10,13 @@ const newSku = (sku: string) => sku.startsWith("AX-") ? `TP-${sku.slice(3)}` : s
 export const applyTrimPathRx = mutation({
   args: {},
   handler: async (ctx) => {
+    await requireTrimPathAdmin(ctx);
     const now = Date.now();
     let updatedProducts = 0;
     let updatedOrders = 0;
     const [products, orders, settings] = await Promise.all([
-      ctx.db.query("products").collect(),
-      ctx.db.query("orders").collect(),
+      ctx.db.query("products").take(250),
+      ctx.db.query("orders").withIndex("by_created_at").take(500),
       ctx.db.query("storeSettings").withIndex("by_singleton", (q) => q.eq("singleton", "main")).unique(),
     ]);
 
